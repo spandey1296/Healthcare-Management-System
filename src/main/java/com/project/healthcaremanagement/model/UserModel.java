@@ -1,5 +1,7 @@
 package com.project.healthcaremanagement.model;
 import lombok.*;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,6 +12,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class UserModel {
     @Id
+    @Column(unique = true)
     private String email;
     private String password;
     private String username;
