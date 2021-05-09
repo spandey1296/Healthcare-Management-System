@@ -1,17 +1,20 @@
 package com.project.healthcaremanagement.service;
 
+import com.project.healthcaremanagement.model.LoginModel;
 import com.project.healthcaremanagement.model.UserModel;
 import com.project.healthcaremanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class UserService
+public class LoginService
 {
     @Autowired
     public UserRepository userRepository;
-    public void addPost(UserModel users)
+    public List<UserModel> LoginServer()
     {
-        userRepository.save(users);
+        return userRepository.findAll();
     }
 }
