@@ -1,7 +1,9 @@
 package com.project.healthcaremanagement.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
-
+@Entity
 public class CheckupModel {
 
  /*
@@ -16,7 +18,7 @@ public class CheckupModel {
 
 */
 
-
+    @Id
     private String checkupID;
 
     private Date date;
