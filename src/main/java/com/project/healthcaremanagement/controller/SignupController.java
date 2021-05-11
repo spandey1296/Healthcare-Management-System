@@ -1,28 +1,40 @@
 package com.project.healthcaremanagement.controller;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.project.healthcaremanagement.model.DoctorModel;
 import com.project.healthcaremanagement.model.UserModel;
 import com.project.healthcaremanagement.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-@RequestMapping("/users")
+@RequestMapping("/patients")
 @RestController
 public class SignupController
 {
     @Autowired
     private UserService userService;
     @PostMapping("/saveUser")
-    public void Signup(@RequestBody UserModel  data)
+    public boolean Signup(@RequestBody UserModel  data)
     {
-        userService.addPost(data);
-        System.out.println("a");
+        try{
+            userService.addPost(data);
+            return true;
+        }
+        catch(Exception e)
+        {
+          return false;
+        }
+    }
+    @PostMapping("/savedoctor")
+    public boolean Signup(@RequestBody DoctorModel data)
+    {
+        try{
+            userService.adddoctor(data);
+            return true;
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
 
     }
-
-
-
-
-
 
 
 }

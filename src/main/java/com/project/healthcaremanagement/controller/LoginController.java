@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-@RequestMapping("/users")
+@RequestMapping("/patients")
 @RestController
 public class LoginController
 {
     @Autowired
     public LoginService loginService;
     @PostMapping("/login")
-    public String login(@RequestBody LoginModel body)
+    public boolean login(@RequestBody LoginModel body)
     {
         int flag=0;
         List<UserModel>list=loginService.LoginServer();
@@ -31,15 +31,12 @@ public class LoginController
             }
         }
         if(flag==1)
-        {
-            String response ="{\"success\":true,\"message\":\"Post has been added successfully\"}";
-            return response;
+        {return true;
 
         }
         else
         {
-            String response ="{\"Not success\":true,\"message\":\"Post has not  been added successfully\"}";
-            return response;
+            return false;
         }
 
 
